@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
+func solution(_ number:String, _ k:Int) -> String {
+    return ""
+}
