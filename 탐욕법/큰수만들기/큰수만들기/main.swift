@@ -8,6 +8,10 @@
 
 import Foundation
 
-func solution(_ number:String, _ k:Int) -> String {
+/// https://programmers.co.kr/learn/courses/30/lessons/42883
+
+func solution(_ number: String, _ k: Int) -> String {
+    
     return ""
 }
+
