@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+struct LinkedList<Element>: LinkableList {
+    typealias E = Element
+    
+    func addHead(at: Int) {
+        <#code#>
+    }
+    
+    func remove(at: Int) -> Element? {
+        <#code#>
+    }
+    
+    func count() -> Int {
+        <#code#>
+    }
+    
+    func print() {
+        <#code#>
+    }
+    
+}
