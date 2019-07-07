@@ -8,5 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
+// https://programmers.co.kr/learn/courses/30/lessons/42840?language=swift
 
+
+func solution(_ answers:[Int]) -> [Int] {
+    return []
+}
