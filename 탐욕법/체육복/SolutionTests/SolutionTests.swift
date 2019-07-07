@@ -12,9 +12,7 @@ class SolutionTests: XCTestCase {
 
     func test1 () {
         //Given
-        let n = 5
-        let lost = [2, 4]
-        let reserve = [1, 3, 5]
+        let n = 5; let lost = [2, 4]; let reserve = [1, 3, 5]
         let expected = 5
        
         //When
@@ -27,9 +25,7 @@ class SolutionTests: XCTestCase {
     
     func test2 () {
         //Given
-        let n = 5
-        let lost = [2, 4]
-        let reserve = [3]
+        let n = 5; let lost = [2, 4]; let reserve = [3]
         let expected = 4
         
         //When
@@ -41,9 +37,31 @@ class SolutionTests: XCTestCase {
     
     func test3() {
         //Given
-        let n = 3
-        let lost = [3]
-        let reserve = [1]
+        let n = 3; let lost = [3]; let reserve = [1]
+        let expected = 2
+        
+        //When
+        let result = solution(n, lost, reserve)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test4() {
+        //Given
+        let n = 6; let lost = [1,3,5]; let reserve = [4,6]
+        let expected = 5
+        
+        //When
+        let result = solution(n, lost, reserve)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test5() {
+        //Given
+        let n = 3; let lost = [1,2]; let reserve = [2,3]
         let expected = 2
         
         //When
