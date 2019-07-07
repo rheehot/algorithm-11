@@ -34,4 +34,16 @@ class SolutionTests: XCTestCase {
         XCTAssertEqual(result, expected)
     }
     
+    func test3() {
+        let input = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+        
+        let expected = [3]
+        
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
 }
