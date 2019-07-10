@@ -37,7 +37,7 @@ class SolutionTests: XCTestCase {
     func test03() {
         //Given
         let input: Int64 = 93731
-        let expected = [9,3,7,3,1]
+        let expected = [1,3,7,3,9]
         
         //When
         let result = solution(input)

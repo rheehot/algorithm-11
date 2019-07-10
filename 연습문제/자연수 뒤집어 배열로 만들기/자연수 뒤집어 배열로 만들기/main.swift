@@ -9,5 +9,5 @@
 import Foundation
 
 func solution(_ n: Int64) -> [Int] {
-    return []
+    return "\(n)".compactMap { $0.hexDigitValue }.reversed()
 }
