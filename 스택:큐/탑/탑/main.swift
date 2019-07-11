@@ -7,6 +7,19 @@
 //
 import Foundation
 
+//https://programmers.co.kr/learn/courses/30/lessons/42588?language=swift
+
 func solution(_ heights:[Int]) -> [Int] {
-    return []
+   
+    var log = [Int]()
+    var stack = [Int]()
+    for h in heights {
+        
+    }
+    return log
 }
+
+print(  )
+
+let a = 1234563
+
