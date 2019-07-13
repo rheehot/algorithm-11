@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+func solution(_ a:Int, _ b:Int) -> Int64 {
+    return Int64((b > a ? Array(a...b) : Array(b...a)).reduce(0){$0+$1})
+}
 
