@@ -15,6 +15,11 @@ class SolutionTests: XCTestCase {
         let input = "JEROEN"
         let expected = 56
         
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
     
     func test02() {
@@ -23,9 +28,69 @@ class SolutionTests: XCTestCase {
         let expected = 23
         
         //When
+        let result = solution(input)
         
         //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test03() {
+        //Given
+        let input = "JAA"
+        let expected = 9
         
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
     }
 
+    func test04() {
+        //Given
+        let input = "AAA"
+        let expected = 0
+        
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test05() {
+        //Given
+        let input = "JAAZ"
+        let expected = 11
+        
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test06() {
+        //Given
+        let input = "BCAA"
+        let expected = 4
+        
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
+    
+    func test07() {
+        //Given
+        let input = "ACCADDAAA"
+        let expected = 1+2+1+2+1+1+3+1+3
+        
+        //When
+        let result = solution(input)
+        
+        //Then
+        XCTAssertEqual(result, expected)
+    }
 }
