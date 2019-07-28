@@ -10,32 +10,29 @@ import Foundation
 
 func solution(_ board:[[Int]]) -> Int
 {
-    var areas = [Int]()
-    
+    var max = 0
     for (i, width) in board.enumerated() {
         for (j, _) in width.enumerated() {
-            var size = 0
+            var size = max
             while verify(rect: board, x: i, y: j, size: size) {
                 size += 1
             }
-            areas.append(size*size)
-            size = 0
+            max = max > size ? max : size
+            size = max
         }
     }
-    return areas.max()!
+    return max * max
 }
 
 func verify(rect: [[Int]], x: Int, y: Int , size: Int) -> Bool {
     let width = x...x+size
     let height = y...y+size
-    var isPassible = true
-    
+    if height.max()! >= rect[0].count || width.max()! >= rect.count { return false }
     for w in width {
         for h in height {
-            if height.max()! >= rect[0].count || width.max()! >= rect.count  { return false }
-            isPassible = isPassible && (rect[w][h] == 1)
+            if (rect[w][h] == 0) { return false }
         }
     }
-    return isPassible
+    return true
 }
 
