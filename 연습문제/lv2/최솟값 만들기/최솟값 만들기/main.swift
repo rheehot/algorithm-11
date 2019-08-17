@@ -7,11 +7,63 @@
 //
 
 import Foundation
+//====================
+//      Solution1
+//====================
+extension Array where Element == Int {
+    func maxIndex() -> Int {
+        var max = 0
+        var maxIndex = 0
+        for (index, value) in self.enumerated() {
+            if max < value  { max = value ; maxIndex = index }
+        }
+        return maxIndex
+    }
+    
+    func minIndex() -> Int {
+        var min = 0
+        var minIndex = 0
+        for (index, value) in self.enumerated() {
+            if min > value  { min = value ; minIndex = index }
+        }
+        return minIndex
+    }
+}
+
 
 func solution(_ A: [Int], _ B: [Int]) -> Int {
+    var A = A
+    var B = B
+    var sum = 0
+    while A.count > 0 {
+        let ax = A.maxIndex()
+        let an = A.minIndex()
+        let bx = B.maxIndex()
+        let bn = B.minIndex()
+        let v1 = A[ax] * B[bn]
+        let v2 = A[an] * B[bx]
+        
+        if v1 < v2 {
+            A.remove(at: ax)
+            B.remove(at: bn)
+            sum += v1
+        }
+        else {
+            A.remove(at: an)
+            B.remove(at: bx)
+            sum += v2
+        }
+    }
+    return sum
+}
+
+//====================
+//      Solution2
+//====================
+func solution2(_ A: [Int], _ B: [Int]) -> Int {
     var min = Int.max
-    let permutations = allPermutation([[]], 0, A.count)
-    var combinations = allCombination(permutations.count)
+    let permutations = allPermutation([[]], 0, A.count) /// - Note: O(n ** 2)
+    var combinations = allCombination(permutations.count) /// - Note: O(n ** 2)
     
     /// - Note: O(n ** 2)
     while let combination = combinations.popLast() {
@@ -25,11 +77,12 @@ func solution(_ A: [Int], _ B: [Int]) -> Int {
             
             sum += A[index1] * B[index2]
         }
-        min = [sum,  min].min() ?? min
+        min = min < sum ? min : sum
+        
     }
     return min
 }
-/// - Note: O(n)
+/// - Note: O(n**2)
 func allPermutation(_ array: [[Int]], _ input: Int, _ count: Int) -> [[Int]] {
     if array[0].count == count { return array }
     
@@ -42,7 +95,7 @@ func allPermutation(_ array: [[Int]], _ input: Int, _ count: Int) -> [[Int]] {
         back[i].append(input)
     }
     front.append(contentsOf: back)
-    
+    /// - Note: O(n)
     return allPermutation(front , input+1, count)
 }
 
