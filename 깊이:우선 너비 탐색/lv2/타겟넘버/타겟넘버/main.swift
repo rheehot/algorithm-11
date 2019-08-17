@@ -38,3 +38,84 @@ func add(_ arr: [[Bool]], _ num: Int) -> [[Bool]] {
 }
 
 print(solution([1,1,1,1,1], 3))
+
+import Foundation
+
+struct Food: Codable {
+    let id: String
+    let storeDate: String
+    let name: String
+    let owner: String
+    let expireDate: String?
+    let category: String
+    let location: String
+    let memo: String
+    let createdAt: String
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case storeDate
+        case name
+        case owner
+        case expireDate
+        case category
+        case location
+        case memo
+        case createdAt
+        
+    }
+}
+
+
+let json =
+"""
+[
+   {
+       "_id": "5d54363d174bf703bcc3a3f5",
+       "name": "cocacola",
+       "owner": "circus",
+       "expireDate": "2019-08-21T16:26:37.794Z",
+       "storeDate": "2019-08-14T16:26:37.000Z",
+       "category": "drink",
+       "location": "냉장고",
+       "memo": "마시지마",
+       "createdAt": "2019-08-14T16:26:37.806Z",
+       "updatedAt": "2019-08-14T16:26:37.806Z",
+       "__v": 0
+   },
+   {
+       "_id": "5d5436e37d488f5bf0f2e013",
+       "name": "cocacola",
+       "owner": "circus",
+       "expireDate": "2019-08-21T16:29:23.976Z",
+       "storeDate": "2019-08-14T16:29:23.000Z",
+       "category": "drink",
+       "location": "냉장고",
+       "memo": "마시지마",
+       "createdAt": "2019-08-14T16:29:23.990Z",
+       "updatedAt": "2019-08-14T16:29:23.990Z",
+       "__v": 0
+   },
+   {
+       "_id": "5d5439a68b9c977830046c0d",
+       "name": "코카콜라",
+       "owner": "서커스",
+       "storeDate": "2019-09-03T16:41:10.237Z",
+       "category": "음료",
+       "location": "냉장고",
+       "memo": "성공",
+       "createdAt": "2019-08-14T16:41:10.249Z",
+       "updatedAt": "2019-08-14T16:41:10.249Z",
+       "__v": 0
+   }
+]
+"""
+
+
+let jsonData = json.data(using: .unicode)
+print(jsonData)
+
+let food = try JSONDecoder().decode([Food].self, from: jsonData!)
+
+print(food)
