@@ -11,10 +11,11 @@ import Foundation
 func solution(_ board:[[Int]]) -> Int
 {
     var max = 0
+    var board = board
     for (i, width) in board.enumerated() {
         for (j, _) in width.enumerated() {
             var size = max
-            while verify(rect: board, x: i, y: j, size: size) {
+            while verify(rect: &board, x: i, y: j, size: size) {
                 size += 1
             }
             max = max > size ? max : size
@@ -24,7 +25,7 @@ func solution(_ board:[[Int]]) -> Int
     return max * max
 }
 
-func verify(rect: [[Int]], x: Int, y: Int , size: Int) -> Bool {
+func verify(rect: inout [[Int]], x: Int, y: Int , size: Int) -> Bool {
     let width = x...x+size
     let height = y...y+size
     if height.max()! >= rect[0].count || width.max()! >= rect.count { return false }
