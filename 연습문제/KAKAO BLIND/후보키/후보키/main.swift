@@ -77,3 +77,20 @@ func 판별할_값만들기(테이블: [[String]], 키들: [Int]) -> [String] {
 func 유일성판별하기(판별할_아이템:[String]) -> Bool {
     return  판별할_아이템.count == Set(판별할_아이템).count
 }
+
+protocol Alphabet: Equatable {
+    var common: Int { get }
+}
+
+extension Alphabet {
+    static func == (lhs: )
+}
+
+class A: Alphabet {
+    var a = 3
+}
+
+class B: A {
+    var b = 4
+}
+
