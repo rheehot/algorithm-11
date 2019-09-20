@@ -68,7 +68,7 @@ int solution(string name) {
                 curser--;
             }
             count++;
-        }
+        } 
     }
     return --count;
 }
