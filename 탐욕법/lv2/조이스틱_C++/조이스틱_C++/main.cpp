@@ -36,7 +36,7 @@ int solution(string name) {
     }
     
     printf("first: %d, last: %d\n", first , last);
-    if (first < name.length()-1-last) {
+    if (first < name.length()-1-last || first == 0) {
         start = first;
         end = last;
         count += first;
