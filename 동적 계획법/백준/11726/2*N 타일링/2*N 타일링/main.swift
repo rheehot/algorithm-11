@@ -10,7 +10,7 @@ import Foundation
 
 var memoization = Array<Int>.init(repeating: 0, count: 10001)
 
-func solution(n: Int) -> Int {
+func solution(n: Int) -I> Int {
     if n == 1 { return 1 }
     if n == 2 { return 2 }
     if memoization[n] != 0 {
