@@ -8,38 +8,87 @@
 
 import Foundation
 
-var memoization = [Int: Int]()
+// 결과 / 결과에 필요한 갯수
+
 
 func solution(_ N: Int, _ number: Int) -> Int {
-    // 수: 횟수
-        // 대상이 N보다 크면? -/
-        if number > N {
-            let x1 = number%N == 0 ? number/N : nil
-            let x2 = number-N
-            let x3 = N * 11
-            let count1 = x1 != nil ? memoization[x1!] ?? solution(N, x1!) + 1 : nil;
-            let count2 = memoization[x2] ??  solution(N, x2) + 1;
-            let count3 = memoization[x3] ??  solution(N, x3) + 1;
-            let result = [count1,count2,count3].compactMap{$0}.min()!
-            memoization[N] = result
-            return result
+    var memoization = [Int: Int]()
+    memoization[N] = 1
+    
+    while memoization.values.max()! < 8 {
+        for num1 in memoization.sorted(by: <) {
+            for num2 in memoization.sorted(by: <)  {
+                Operations.allCases.forEach {
+                    operation in
+                    switch (num1.key, num2.key, operation) {
+                    case (0,_,_):
+                        ()
+                    case (_, 0, .division):
+                        ()
+                    case (_, _, .shiftLeft):
+                        let result = operation.logic(num1.key ,num2.key)
+                        print(num1.key,operation,num2.key,result)
+                        if let exist = memoization[result] {
+                            memoization[result] = min(exist, num1.value + 1)
+                        } else {
+                            memoization[result] = num1.value + 1
+                        }
+                    case (_, _, _):
+                        let result = operation.logic(num1.key ,num2.key)
+                        print(num1.key,operation,num2.key,result)
+                        if let exist = memoization[result] {
+                            memoization[result] = min(exist, num1.value + num2.value)
+                        } else {
+                            memoization[result] = num1.value + num2.value
+                        }
+                    }
+                }
+                
+            }
+            
         }
-        else if number == N {
-            memoization[N] = 1
-            return 1
-        }
-            // 대상이 N보다 작으면 +*
-        else {
-            let x1 = N-number
-            let x2 = N%number == 0 ? N/number : nil
+    }
+    return  memoization[number] ?? -1
+}
+
+enum Operations: CaseIterable, CustomStringConvertible{
+    var description: String {
+        switch self {
+            
+        case .addition:
+            return "+"
+        case .subtraction:
+            return "-"
+        case .multiplication:
+            return "*"
+        case .division:
+            return "/"
+        case .shiftLeft:
+            return "<<"
+        }}
+    
+    case addition
+    case subtraction
+    case multiplication
+    case division
+    case shiftLeft
     
     
-            let count1 = memoization[x1] ?? solution(N, x1) + 1;
-            let count2 = x2 != nil ? memoization[x2!] ??  solution(N, x2!) + 1 : nil;
-            let result = [count1,count2].compactMap{$0}.min()!
-            memoization[N] = result
-            return result
+    
+    var logic: (Int, Int) -> Int {
+        switch self {
+        case .addition:
+            return { $0 + $1 }
+        case .subtraction:
+            return { $0 - $1 }
+        case .multiplication:
+            return { $0 * $1 }
+        case .division:
+            return { $0 / $1 }
+        case .shiftLeft:
+            return { num, _ in num * 11 }
         }
+    }
 }
 
 func bench(benchFunc: () -> ()) {
@@ -49,4 +98,4 @@ func bench(benchFunc: () -> ()) {
     print("Process Time = \(processTime)")
 }
 
-print(solution(5, 12))
+bench(benchFunc: { print(solution(5, 12)) })
