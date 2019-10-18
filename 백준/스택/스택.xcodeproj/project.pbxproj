@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E4AB539235A4FE100301EAC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB538235A4FE100301EAC /* main.cpp */; };
 		0E4AB545235A516B00301EAC /* 9012.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB544235A516B00301EAC /* 9012.cpp */; };
+		0E4AB547235A5C9C00301EAC /* 10799.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB546235A5C9C00301EAC /* 10799.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		0E4AB535235A4FE100301EAC /* 스택 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "스택"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4AB538235A4FE100301EAC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0E4AB544235A516B00301EAC /* 9012.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 9012.cpp; sourceTree = "<group>"; };
+		0E4AB546235A5C9C00301EAC /* 10799.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 10799.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4AB544235A516B00301EAC /* 9012.cpp */,
+				0E4AB546235A5C9C00301EAC /* 10799.cpp */,
 			);
 			name = "문제들";
 			path = "문제들";
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4AB539235A4FE100301EAC /* main.cpp in Sources */,
+				0E4AB547235A5C9C00301EAC /* 10799.cpp in Sources */,
 				0E4AB545235A516B00301EAC /* 9012.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
