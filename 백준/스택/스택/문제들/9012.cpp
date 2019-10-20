@@ -31,7 +31,7 @@ string validate(string s) {
     return count == 0 ? "YES" : "NO";
 }
 
-int main(int argc, const char * argv[]) {
+int main_1409(int argc, const char * argv[]) {
     
     ios_base::sync_with_stdio(false);
     
