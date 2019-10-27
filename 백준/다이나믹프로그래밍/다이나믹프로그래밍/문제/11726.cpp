@@ -1,17 +1,19 @@
 //
-//  main.cpp
+//  11726.cpp
 //  다이나믹프로그래밍
 //
-//  Created by 이동영 on 22/10/2019.
+//  Created by 이동영 on 27/10/2019.
 //  Copyright © 2019 부엉이. All rights reserved.
 //
+
+#include <stdio.h>
 #include <iostream>
 
 using namespace std;
 
 int memo[1001];
 
-int main(int argc, const char * argv[]) {
+int main_11726(int argc, const char * argv[]) {
     memo[0] = 1;
     memo[1] = 1;
     int n;
@@ -25,4 +27,3 @@ int main(int argc, const char * argv[]) {
     
     return 0;
 }
-
