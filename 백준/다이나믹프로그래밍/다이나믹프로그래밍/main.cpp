@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     int n;
     scanf("%d", &n);
     for (int i = 2; i <= n; i++) {
-        memo[i] = memo[i-1] + memo[i-2];
+        memo[i] = memo[i-1] + memo[i-2]*2;
     }
     int result = memo[n] % 10007;
     

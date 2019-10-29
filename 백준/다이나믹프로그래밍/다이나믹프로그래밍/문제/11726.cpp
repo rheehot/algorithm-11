@@ -20,10 +20,9 @@ int main_11726(int argc, const char * argv[]) {
     scanf("%d", &n);
     for (int i = 2; i <= n; i++) {
         memo[i] = memo[i-1] + memo[i-2];
+        memo[i] %= 10007;
     }
-    int result = memo[n] % 10007;
-    
-    printf("%d", result);
+    printf("%d", memo[n]);
     
     return 0;
 }
