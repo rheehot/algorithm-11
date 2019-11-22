@@ -14,6 +14,7 @@ protocol Queue {
     
     mutating func enqueue(_ element: Element)
     mutating func dequeue() -> Element?
+    func peek() -> Element?
 }
 
 // MARK: - Queue
@@ -27,5 +28,9 @@ extension Array: Queue {
         guard !self.isEmpty else { return nil }
         
         return self.removeFirst()
+    }
+    
+    mutating func peek() -> Element? {
+        return self.last
     }
 }
