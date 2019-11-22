@@ -68,22 +68,13 @@ func solution(_ begin: String, _ target: String, _ words: [String]) -> Int {
         guard let word = queue.peek() else { return }
         
         for i in words.indices {
-            
             let newWord = words[i]
-            print(!check[i],
-            word.diffCount(with: newWord) == 1,
-            (word.matchCount(with: target) <= newWord.matchCount(with: target)))
             if  !check[i] && word.diffCount(with: newWord) == 1 &&
                 (word.matchCount(with: target) <= newWord.matchCount(with: target)) {
-                
                 check[i] = true
                 queue.enqueue(newWord)
             }
-            
-            print(word, newWord)
-            print(queue)
         }
-        
         if word == queue.peek() { return }
         count += 1
         _ = queue.dequeue()
