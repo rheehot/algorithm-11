@@ -10,64 +10,50 @@ import Foundation
 
 extension Int {
     
-    func power(_ n: Int) -> Int {
-        var count = n
-        var number = 1
-        while (count > 0) {
-            number*=self
-            count-=1
-        }
-        return number
-    }
-    
     var countOfDigit: Int {
+        var num = self
         var count = 1
-        var number = self
-        while (number >= 10) {
-            number/=10
+        
+        while num >= 10 {
+            num/=10
             count+=1
         }
         return count
     }
     
-    func appending(_ n: Int, count: Int) -> Int {
-        var count = count < 0 ? count * -1 : count
-        var result = self
-        while (count > 0) {
-            result *= 10
-            result += n
+    func pow(_ b: Int) -> Int {
+        var count = b
+        var result = 1
+        
+        while count != 0 {
             count -= 1
+            result*=self
         }
         return result
     }
     
-}
-func solution(_ numbers:[Int]) -> String {
-    
-    return numbers
-        .sorted{ n1, n2 in
-            let d1 = n1.countOfDigit
-            let d2 = n2.countOfDigit
-            if d1 == d2 {
-                return n1 > n2
-            } else if (d1 < d2 ){
-                let diff = d2 - d1
-                let f1 = n1/10.power(d1.countOfDigit)
-                let a = n1.appending(f1, count: diff)
-                if a == n2  { return true }
-                return a > n2
-            } else {
-                let diff = d1 - d2
-                let f2 = n2/10.power(d2.countOfDigit)
-                let b = n2.appending(f2, count: diff)
-                if b == n1  { return false }
-                return n1 > b
-            }
+    var headNumber: Int {
+        return self/10.pow(countOfDigit-1)
     }
-        .map { String($0) }
-        .reduce("") { $0 + $1 }
 }
 
-let result = solution([12,121, 998,99,98,11,10])
-// 9999898121211110
+func shiftlLeft (_ num: Int) -> Int {
+    if num.countOfDigit == 1 { return num-1 }
+    return num - num.headNumber * 10.pow(num.countOfDigit-1)
+}
+
+func solution(_ numbers:[Int]) -> String {
+    return numbers.sorted { a, b in
+        var a = a
+        var b = b
+        while a.countOfDigit != 1 || b.countOfDigit != 1 {
+            if a.headNumber != b.headNumber { return a.headNumber > b.headNumber }
+            a = shiftlLeft(a)
+            b = shiftlLeft(b)
+        }
+        return a.headNumber > b.headNumber
+    }.reduce("") { $0 + "\($1)" }
+}
+
+let result = solution([99,998,98, 121, 11])
 print(result)
