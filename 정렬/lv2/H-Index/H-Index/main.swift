@@ -18,6 +18,8 @@ func solution(_ citations: [Int]) -> Int {
     }
     return hs.max() ?? 0
 }
+
+
 // 인용된 최대 수 == 인용된 최대수가 같은 작품 수
 let citations1 = [3, 0, 6, 1, 5]
 let result1 = 3
