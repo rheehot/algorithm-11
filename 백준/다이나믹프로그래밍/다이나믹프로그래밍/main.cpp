@@ -9,20 +9,25 @@
 
 using namespace std;
 
-int memo[1001];
+int __memo[12];
 
 int main(int argc, const char * argv[]) {
-    memo[0] = 1;
-    memo[1] = 1;
+    int count;
     int n;
-    scanf("%d", &n);
-    for (int i = 2; i <= n; i++) {
-        memo[i] = memo[i-1] + memo[i-2]*2;
+    int outut[12];
+    __memo[1] = 1;
+    __memo[2] = 2;
+    __memo[3] = 4;
+    scanf("%d",&count);
+    
+    for (int j=count; j>0;j--) {
+        scanf("%d",&n);
+        if (n<=3) {
+            break;
+        }
+        for(int i=4; i<=n; i++){
+            __memo[i] = __memo[i-1] + __memo[i-2] + __memo[i-3];
+        }
     }
-    int result = memo[n] % 10007;
-    
-    printf("%d", result);
-    
     return 0;
 }
-

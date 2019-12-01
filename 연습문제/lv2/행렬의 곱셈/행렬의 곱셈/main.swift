@@ -8,21 +8,38 @@
 
 import Foundation
 
-func solution(_ arr1:[[Int]], _ arr2:[[Int]]) -> [[Int]] {
-    var index = 0
-    var result = [[Int]]()
-    for i in 0..<arr1.count {
-        result.append([])
-        var k = 0
-        for _ in 0..<arr1[0].count {
-            for j in 0..<arr1[i].count {
-                k += arr1[i][j] * arr2[j][index]
+func solution(_ arr1: [[Int]], _ arr2: [[Int]]) -> [[Int]] {
+    var result: [[Int]] = []
+    
+    var rowOffset = 0
+    var columnOffset = 0
+    
+    var arr: [Int] = []
+    
+    for row in arr1.indices {
+        arr = []
+        var v = 0
+        for count in arr2.indices {
+            for column in arr1[row].indices {
+                let value = arr1[row][column] * arr2[column - columnOffset][row - rowOffset + count]
+                v += value
+                columnOffset += 1
             }
-            result[i].append(k)
-            index = (index+1)%arr1[0].count
-            k = 0
+            arr.append(v)
+            v = 0
+            columnOffset = 0
         }
-        
+        rowOffset += 1
+        result.append(arr)
     }
     return result
 }
+let arr1 = [[1, 4],
+            [3, 2],
+            [4, 1]]
+
+let arr2 = [[3, 3],
+            [3, 3]]
+//[[15, 15], [15, 15], [15, 15]]
+let r = solution(arr1, arr2)
+print(r)

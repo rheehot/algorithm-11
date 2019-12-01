@@ -8,21 +8,25 @@
 import Foundation
 
 func solution(_ number: String, _ k: Int) -> String {
-   func deleteOneMax(_ n: String) -> String {
-        var number = [[Character]] (repeating: n.map{ $0 }, count: n.count)
-        var i = 0
-        for (index,_) in number.enumerated() {
-            number[index].remove(at: i)
-            i+=1
-        }
-        return number.map { $0.reduce("") { "\($0)\($1)"} }.max()!
-    }
-    var result: String = number
-    
-    for _ in 0..<k {
-        result = deleteOneMax(result)
-    }
-    return result
-    
-}
+    var numbers = number.compactMap { $0.wholeNumberValue }
 
+    var count: Int { return numbers.count }
+    for _ in 0..<k {
+        for i in numbers.indices {
+            if numbers[i] == 0 {
+                numbers.remove(at: i)
+                break
+            }
+            if i+1 < count {
+                if numbers[i] < numbers[i+1]  {
+                    numbers.remove(at: i)
+                    break
+                }
+            }
+        }
+    }
+    
+    return numbers.reduce("") { $0 + "\($1)" }
+}
+let r = solution("1010", 2)
+print(r)
