@@ -11,6 +11,8 @@
 		0E4AB5A9235ED3B900301EAC /* 1463.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5A8235ED3B900301EAC /* 1463.cpp */; };
 		0E4AB66C2365D94000301EAC /* 11726.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB66B2365D94000301EAC /* 11726.cpp */; };
 		0EB5483523929D1400C88B1D /* 11727.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5483423929D1400C88B1D /* 11727.cpp */; };
+		0EB5484A2393D40500C88B1D /* 2193.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548492393D40500C88B1D /* 2193.cpp */; };
+		0EB5484C239422C900C88B1D /* 10844.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5484B239422C900C88B1D /* 10844.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,8 @@
 		0E4AB5A8235ED3B900301EAC /* 1463.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 1463.cpp; sourceTree = "<group>"; };
 		0E4AB66B2365D94000301EAC /* 11726.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 11726.cpp; sourceTree = "<group>"; };
 		0EB5483423929D1400C88B1D /* 11727.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 11727.cpp; sourceTree = "<group>"; };
+		0EB548492393D40500C88B1D /* 2193.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 2193.cpp; sourceTree = "<group>"; };
+		0EB5484B239422C900C88B1D /* 10844.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 10844.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				0E4AB5A8235ED3B900301EAC /* 1463.cpp */,
 				0E4AB66B2365D94000301EAC /* 11726.cpp */,
 				0EB5483423929D1400C88B1D /* 11727.cpp */,
+				0EB548492393D40500C88B1D /* 2193.cpp */,
+				0EB5484B239422C900C88B1D /* 10844.cpp */,
 			);
 			name = "문제";
 			path = "문제";
@@ -138,9 +144,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB5483523929D1400C88B1D /* 11727.cpp in Sources */,
+				0EB5484C239422C900C88B1D /* 10844.cpp in Sources */,
 				0E4AB5A1235EB16700301EAC /* main.cpp in Sources */,
 				0E4AB66C2365D94000301EAC /* 11726.cpp in Sources */,
 				0E4AB5A9235ED3B900301EAC /* 1463.cpp in Sources */,
+				0EB5484A2393D40500C88B1D /* 2193.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

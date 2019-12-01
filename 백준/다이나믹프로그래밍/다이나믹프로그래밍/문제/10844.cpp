@@ -1,17 +1,19 @@
 //
-//  main.cpp
+//  10844.cpp
 //  다이나믹프로그래밍
 //
-//  Created by 이동영 on 22/10/2019.
+//  Created by 이동영 on 2019/12/02.
 //  Copyright © 2019 부엉이. All rights reserved.
 //
+
+#include <stdio.h>
 #include <iostream>
 
 using namespace std;
 
 long long stair[101][10];
 
-int main(int argc, const char * argv[]) {
+int main_10844(int argc, const char * argv[]) {
     int n;
     cin >> n;
     for (int i=1; i<=9; i++) stair[1][i] = 1;
