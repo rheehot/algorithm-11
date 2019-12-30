@@ -9,7 +9,21 @@
 
 using namespace std;
 
+int sticker[2][100001];
 
 int main(int argc, const char * argv[]) {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        for (int i=1; i<=n; i++) {
+            cin >> sticker[0][i];
+        }
+        for (int i=1; i<=n; i++) {
+            cin >> sticker[1][i];
+        }
+        
+    }
     return 0;
 }
