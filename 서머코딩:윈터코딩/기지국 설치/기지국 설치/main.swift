@@ -68,7 +68,7 @@ func solution(_ n: Int, _ stations: [Int], _ w: Int) -> Int {
     var count = 0
     
     while current < n {
-        if start...end ~= current {
+        if start <= current && current <= end {
             current += 1
         } else if current < start || index == stations.count {
             current += 2 * w + 1
