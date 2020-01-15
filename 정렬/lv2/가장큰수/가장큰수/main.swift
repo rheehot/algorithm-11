@@ -24,11 +24,3 @@ print(result)
 
 let result2 = solution([21,212]) /// 99998983412111
 print(result2)
-
-
-print(compare("3", "34") , false)
-print(compare("33", "35"), false)
-print(compare("3", "4") , true)
-print(compare("33", "3"), false)
-
-print(compare("99", "98"), false)
