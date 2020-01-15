@@ -7,53 +7,28 @@
 //
 
 import Foundation
-
-extension Int {
-    
-    var countOfDigit: Int {
-        var num = self
-        var count = 1
-        
-        while num >= 10 {
-            num/=10
-            count+=1
-        }
-        return count
-    }
-    
-    func pow(_ b: Int) -> Int {
-        var count = b
-        var result = 1
-        
-        while count != 0 {
-            count -= 1
-            result*=self
-        }
-        return result
-    }
-    
-    var headNumber: Int {
-        return self/10.pow(countOfDigit-1)
-    }
-}
-
-func shiftlLeft (_ num: Int) -> Int {
-    if num.countOfDigit == 1 { return num-1 }
-    return num - num.headNumber * 10.pow(num.countOfDigit-1)
-}
+import Foundation
 
 func solution(_ numbers:[Int]) -> String {
-    return numbers.sorted { a, b in
-        var a = a
-        var b = b
-        while a.countOfDigit != 1 || b.countOfDigit != 1 {
-            if a.headNumber != b.headNumber { return a.headNumber > b.headNumber }
-            a = shiftlLeft(a)
-            b = shiftlLeft(b)
+    return numbers
+        .map { String($0) }
+        .sorted { Int($0 + $1)! > Int($1 + $0)! }
+        .reduce("") {
+            if $0 == "0" && $1 == "0" { return "0" }
+            else if $0 == "0" && $1 != "0" { return $1 }
+            else { return $0 + $1 }
         }
-        return a.headNumber > b.headNumber
-    }.reduce("") { $0 + "\($1)" }
 }
-
-let result = solution([99,998,98, 121, 11])
+let result = solution([99, 998, 98, 121, 11, 34, 90]) /// 99998983412111
 print(result)
+
+let result2 = solution([21,212]) /// 99998983412111
+print(result2)
+
+
+print(compare("3", "34") , false)
+print(compare("33", "35"), false)
+print(compare("3", "4") , true)
+print(compare("33", "3"), false)
+
+print(compare("99", "98"), false)

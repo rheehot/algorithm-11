@@ -48,7 +48,6 @@ func solution(_ N: Int, _ road: [[Int]], _ k: Int) -> Int {
         town1.roads.append(road)
         town2.roads.append(road)
     }
-    
     return 0
 }
 
