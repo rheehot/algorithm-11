@@ -11,6 +11,7 @@ import Foundation
 class Town: Hashable {
     let no: Int
     var roads: [Road] = []
+    var distanceOfFirstTown: Int = 0
     
     init(_ no: Int) {
         self.no = no
@@ -35,6 +36,10 @@ class Road {
         self.end = end
         self.distance = distance
     }
+    
+    func oppsite(of town: Town) -> Town {
+        return town == start ? end : start
+    }
 }
 
 func solution(_ N: Int, _ road: [[Int]], _ k: Int) -> Int {
@@ -48,8 +53,26 @@ func solution(_ N: Int, _ road: [[Int]], _ k: Int) -> Int {
         town1.roads.append(road)
         town2.roads.append(road)
     }
-    return 0
+    
+    var available = Set<Town>()
+    var waitingTownsQueue = [Town]()
+    waitingTownsQueue.append(towns[0])
+    
+    while !waitingTownsQueue.isEmpty {
+        let town = waitingTownsQueue.removeFirst()
+        town.roads.forEach {
+            let oppsiteTown = $0.oppsite(of: town)
+            let result = min(oppsiteTown.distanceOfFirstTown, $0.distance + town.distanceOfFirstTown)
+    
+            if oppsiteTown.distanceOfFirstTown <= k && !available.contains(oppsiteTown) {
+                waitingTownsQueue.append(oppsiteTown)
+                available.insert(oppsiteTown)
+            }
+        }
+    }
+    return available.count
 }
+
 
 
 let n = 5
