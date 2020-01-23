@@ -19,6 +19,12 @@ func solution(_ numbers:[Int]) -> String {
             else { return $0 + $1 }
         }
 }
+
+
+
+
+
+
 let result = solution([99, 998, 98, 121, 11, 34, 90]) /// 99998983412111
 print(result)
 
